@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Download Mac OS X (e.g. Yosemite)</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Hiera::Client
+
+---
+
+# Agenda
+
+* Download Mac OS X (e.g. Yosemite)
+* Example for Yosemite
+* Output
+* Startup key combinations for Mac
+
+
+---
+
+# Download Mac OS X (e.g. Yosemite)
+
+- Download the OS X installer from the Mac App Store. Quit the installer if it opens automatically after downloading. The installer will be in your Applications folder.
+- Mount your USB flash drive or other volume. You could also use a secondary internal partition.
+- Open the Terminal app, which is in the Utilities folder of your Applications folder.
+- Use the `createinstallmedia` command in Terminal to create the bootable installer.
+
+
+---
+
+# Example for Yosemite
+
+This is the basic syntax of the command. Replace `volumepath` with the path to your USB flash drive or other volume, and replace `installerpath` with the path to the Install OS X app.
+
+The following examples assume that the OS X installer is in your Applications folder and the name of your USB flash drive or other volume is `Untitled`:
+
+    sudo /Applications/Install\ OS\ X\ Yosemite.app/Contents/Resources/
+    createinstallmedia --volume /Volumes/Untitled --applicationpath /Applications/
+    Install\ OS\ X\ Yosemite.app
+
+---
+
+name: output
+
+# Output
+
+    john@doe:~ $ sudo /Applications/Install\ OS\ X\ Yosemite.app/Contents/Resources/
+    createinstallmedia --volume /Volumes/Untitled --applicationpath /Applications/
+    Install\ OS\ X\ Yosemite.app
+
+    Ready to start.
+    To continue we need to erase the disk at /Volumes/Untitled.
+    If you wish to continue type (Y) then press return: Y
+    Erasing Disk: 0%... 10%... 20%... 30%...100%...
+    Copying installer files to disk...
+    Copy complete.
+    Making disk bootable...
+    Copying boot files...
+    Copy complete.
+    Done.
+
+*Attention: the Volume will be erased!*
+
+---
+
+# Startup key combinations for Mac
+
+*Some Mac features are available by holding down certain keys during startup.*
+
+Press and hold the keys immediately after you turn on your Mac and hear the startup sound. Keep holding until the described behavior occurs. These combinations work with Intel-based Mac computers.
+
+    Hold during startup	  Description
+    Shift ⇧ 	            Start up in Safe Mode.
+    Option ⌥	            Start up to Startup Manager.
+    C	                    Start up from a bootable CD, DVD, or USB thumb.
+    D	                    Start up to either Apple Hardware Test or Apple Diagnostics.
+    Option-D	             Start up to either Apple Hardware Test or Apple Diagnostics.
+    N	                    Start up from a compatible NetBoot server.
+    Option-N	             Start up from a NetBoot server using the default boot image.
+    Command (⌘)-R	       Start up from OS X Recovery.
+    Command-Option-R	     Start up from OS X Recovery over the Internet.
+    Command-Option-P-R	   Reset NVRAM.
+    Command-S	            Start up in single-user mode.
+    T	                    Start up in target disk mode.
+    X	                    Start up from an OS X startup volume.
+    Command-V	            Start up in verbose mode.
+
+---
+
+# It's done.
+
+
+
+    </textarea>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
