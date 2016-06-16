@@ -8,3 +8,4 @@ some presentation using remark
 - [Wordpress Best Practices](./wordpress_best_practices/wordpress_best_practices.html)
 - [Wordpress Theme Best Practices When You Choose One](./wordpress_theme_best_practices/wordpress_theme_best_practices.html)
 - [Puppet Forge: Unable to verify the SSL certificate](./puppet_forge_ssl_connection_error/puppet_forge_ssl_connection_error.html)
+- [6 Things DevOps is Not](./6_things_devops_is_not/6_things_devops_is_not.html)
