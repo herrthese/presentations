@@ -10,3 +10,5 @@ some presentation using remark
 - [Puppet Forge: Unable to verify the SSL certificate](./puppet_forge_ssl_connection_error/puppet_forge_ssl_connection_error.html)
 - [6 Things DevOps is Not](./6_things_devops_is_not/6_things_devops_is_not.html)
 - [Useful Things For Docker](./useful_things_for_docker/useful_things_for_docker.html)
+- [Use RVM to fix SSL Certificates](./mac_osx_fix_ssl_certificates_rvm/use_rvm_to_fix_ssl_certificates.html)
+- [Import public key into OSX Keychain](./mac_osx_import_public_key_into_osx_keychain/import_public_key_into_osx_keychain.html)
