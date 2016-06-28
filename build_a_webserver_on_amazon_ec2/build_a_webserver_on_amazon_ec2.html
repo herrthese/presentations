@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Build a Webserver on Amazon EC2</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Build a Webserver on Amazon EC2
+
+---
+
+# Agenda
+
+* Creating an EC2 Instance
+  * Create Security Groups for HTTP and SSL
+  * Create Key Pair
+  * Create EC2 Instance
+* Install Nginx on Amazon Linux AMI
+
+---
+
+# Create Security Groups for HTTP and SSL
+
+First, we need to create a security group for our webserver exposing port 80 and port 22 to the internet.
+In the EC2 Management Console click on Security Groups and Network & Security.
+In the right pane click on Create Security Group.
+
+Add HTTP and SSH rules then click on Apply Rule Changes. You should see a summary of open ports on the right.
+
+---
+
+# Create Key Pair
+
+In the left pane click on Key Pairs under Network and Security. In the right pane click on Create Key Pair.
+
+---
+
+# Create EC2 Instance
+
+You can create now the EC2 Instance including the Security Groups and the Key Pair.
+
+---
+
+# Install Nginx on Amazon Linux AMI
+
+    ssh -i .ssh/mykey.pem ec2-user@AWS_public_hostname
+
+    sudo yum update
+    sudo reboot
+
+    sudo yum install nginx
+    sudo chkconfig nginx on
+    sudo service nginx start
+
+Congratulations you have successfully created an Amazon EC2 instance and installed Nginx.
+You should now be able to browse to the public DNS of your instance and see the nginx testpage.
+
+---
+
+# It's done.
+
+
+
+    </textarea>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
