@@ -13,4 +13,4 @@ some presentation using remark
 - [Use RVM to fix SSL Certificates](./mac_osx_fix_ssl_certificates_rvm/use_rvm_to_fix_ssl_certificates.html)
 - [Import public key into OSX Keychain](./mac_osx_import_public_key_into_osx_keychain/import_public_key_into_osx_keychain.html)
 - [Build a Webserver on Amazon EC2](./build_a_webserver_on_amazon_ec2/build_a_webserver_on_amazon_ec2.html)
-- [8 Wege um zu beweisen das dein Produkt funktioniert](./8_wege_um_zu_beweisen_das_dein_produkt_funktioniert.html)
+- [8 Wege um zu beweisen das dein Produkt funktioniert](./8_wege_ob_ein_produkt_funktioniert_german/8_wege_um_zu_beweisen_das_dein_produkt_funktioniert.html)
