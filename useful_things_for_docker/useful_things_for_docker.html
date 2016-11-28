@@ -38,6 +38,8 @@ class: center, middle
     docker rm -f $(docker ps -a -q)
     # Delete all images
     docker rmi -f $(docker images -q)
+    # Delete docker volumes
+    <docker>/volumes> docker volume rm $(docker volume ls |awk '{print $2}')
 
 ---
 
