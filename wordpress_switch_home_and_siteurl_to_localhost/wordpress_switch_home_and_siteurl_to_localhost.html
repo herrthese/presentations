@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Wordpress: switch home and siteurl to localhost</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# wordpress::switch::home::and::siteurl::to::localhost
+
+---
+
+# wordpress: switch home and siteurl to localhost
+SELECT * FROM wp_options WHERE option_name = "home" OR option_name = "siteurl";
+
+
+    Before we start lets define a few things for this example:
+
+    The hosted version address we will refer to as: http://www.acme.com (This is the web address of the hosted wordpress site)
+    The local version address we will refer to as: http://localhost/acme (This is the web address of the local host folder you want to transfer your site to)
+    STEP 1:
+    Copy your files from your webhost to your local server folder.
+
+    STEP 2:
+    On your webhost login to phpmyadmin and export your database (By Selecting your database and selecting the export tab and downloading to your computer)
+
+    STEP 3:
+    Log into your local phpmyadmin, create a new database and import the sql database into it by selecting the import tab and uploading your file.
+
+    STEP 4:
+    Once Uploaded we want to modify the database to reflect the new blog location being on the localhost. So we run the following SQL (Select the SQL tab and paste the following code):
+
+UPDATE wp_options SET option_value = replace(option_value, 'http://www.acme.com', 'http://localhost/acme') WHERE option_name = 'home' OR option_name = 'siteurl';
+
+
+    STEP 5:
+    We now want to fix the urls of posts and pages. So we run the following SQL:
+
+UPDATE wp_posts SET guid = replace(guid, 'http://www.acme.com','http://localhost/acme');
+
+
+    STEP 6:
+    If you have linked internally within blog posts or pages with absolute URLs, these links will point to wrong locations after you move the blog location. So we run the following SQL to fix this issue:
+
+UPDATE wp_posts SET post_content = replace(post_content, 'http://www.acme.com', 'http://localhost/acme');
+
+    STEP 7:
+    We want to now modify our wp-config.php file in our local server. Honestly, the easiest way to do this is to delete the wp-config.php file in your local server and then visit http://localhost/acme in a browser.
+
+    STEP 8:
+    With the dialog message that comes up click the 'Create a Configuration File' button. Then click the 'Lets Go' button on the next screen.
+
+    STEP 9:
+    Fill in all of the fields:
+    Database Name: This is the name of the database in your local phpmyadmin
+    Username: This is your phpmyadmin username (usually root)
+    Password: This is your phpmyadmin username's password
+    Database Host: This is usually localhost
+    Database Prefix: normally is wp_ unless someone has changed it manually.
+
+    STEP 10:
+    Click Submit, the wp-config file will be created and everything should work on the local host.
+
+
+
+
+----
+
+# Example
+SELECT * FROM wp_options WHERE option_name = "home" OR option_name = "siteurl";
+UPDATE wp_options SET option_value = replace(option_value, 'http://acme.de', 'http://localhost:8888/acme') WHERE option_name = 'home' OR option_name = 'siteurl';
+UPDATE wp_posts SET guid = replace(guid, 'http://acme.de','http://localhost:8888/acme');
+UPDATE wp_posts SET post_content = replace(post_content, 'http://acme.de', 'http://localhost:8888/acme');
+
+
+
+
+
+
+    </textarea>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
