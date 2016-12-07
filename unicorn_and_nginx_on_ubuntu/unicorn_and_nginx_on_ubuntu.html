@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>unicorn and nginx on ubuntu</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# unicorn::and::nginx::on::ubuntu
+
+---
+
+# install: unicorn and nginx on ubuntu
+Step One
+
+Update aptitutde:
+
+    sudo apt-get update
+
+Install curl:
+
+    sudo apt-get install curl
+
+Get and install Ruby RVM
+
+    curl -L https://get.rvm.io | bash -s stable
+    # if the GPG signature verification failed? Follow the instructions
+
+---
+
+
+Reload Terminal session with RVM
+
+Install RVM requirements
+
+    rvm requirements
+
+Step Two Install Ruby
+
+    rvm install ruby
+
+Set Ruby to default version
+
+    rvm use ruby --default
+
+---
+
+Step Three Install Ruby Gems
+
+    rvm rubygems current
+
+Step Four Install Sinatra
+
+    gem install sinatra
+
+---
+
+Install nginx
+
+    apt-get install nginx
+
+Install unicorn
+
+    apt-get install unicorn
+
+---
+
+
+
+    </textarea>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
