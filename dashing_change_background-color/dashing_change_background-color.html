@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>dashing change background-color via coffee script</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# dashing change background-color via coffee script
+
+---
+
+# provide data in class.rb
+
+    status = "danger"
+
+    send_event('widget_foo', {status: status})
+
+---
+
+# set background-color via coffee script
+
+      onData: (data) ->
+        if data.status
+          # clear existing "status-*" classes
+            $(@get('node')).attr 'class', (i,c) ->
+              c.replace /\bstatus-\S+/g, ''
+            # add new class
+            $(@get('node')).addClass "status-#{data.status}"
+
+---
+
+# use data in widget
+
+    <span class="label" data-bind="status"></span>
+
+---
+
+# It's done.
+
+
+
+    </textarea>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
