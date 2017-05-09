@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jenkins on ubuntu</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# jenkins::on::ubuntu
+
+---
+
+# install: jenkins on ubuntu
+Step One
+
+Update aptitutde:
+
+Unix/Linux
+Debian/Ubuntu
+On Debian-based distributions, such as Ubuntu, you can install Jenkins through apt.
+
+Recent versions are available in an apt repository. Older but stable LTS versions are in this apt repository.
+
+    wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
+    sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+    sudo apt-get update
+    sudo apt-get install jenkins
+
+---
+
+This package installation will:
+
+Setup Jenkins as a daemon launched on start. See /etc/init.d/jenkins for more details.
+Create a jenkins user to run this service.
+Direct console log output to the file /var/log/jenkins/jenkins.log. Check this file if you are troubleshooting Jenkins.
+Populate /etc/default/jenkins with configuration parameters for the launch, e.g JENKINS_HOME
+Set Jenkins to listen on port 8080. Access this port with your browser to start configuration.
+
+
+
+
+---
+
+
+
+    </textarea>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
