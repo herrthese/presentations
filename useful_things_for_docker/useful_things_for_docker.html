@@ -43,6 +43,32 @@ class: center, middle
 
 ---
 
+Installing Command Completion
+
+Make sure bash completion is installed.
+- On a current Linux OS (in a non-minimal installation), bash completion should be available.
+- On a Mac, install with 'brew install bash-completion'.
+
+    curl -L https://raw.githubusercontent.com/docker/compose/master/contrib/completion/bash/docker-compose -o /usr/local/etc/bash_completion.d/docker-compose
+
+On a Mac, add the following to your ~/.bash_profile:
+
+    if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+    fi
+
+You can source your ~/.bash_profile or launch a new terminal to utilize completion.
+
+---
+
+# ERROR
+
+    ...Got permission denied while trying to connect to the Docker daemon socket at...
+
+    usermod -aG docker ${user}
+
+---
+
 # It's done.
 
 
